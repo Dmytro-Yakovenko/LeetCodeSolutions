@@ -1,0 +1,26 @@
+{
+    "problems":[
+        {
+            "title":"Two Sum",
+            "description":"Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
+            "level":"easy",
+            "solution":"var twoSum = function(nums, target) { \nfor(let i=0; i<nums.length; i++){\n for(let j=i+1; j<nums.length; j++){\nif(nums[i]+nums[j]===target){\nreturn [i,j]\n}\n}\n}\n};\n console.log(twoSum([2,7,11,15],9))"
+
+        },
+        {
+            "title":"Reverse Integer",
+            "description":" Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0. Assume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+            "level":"medium",
+            "solution":" var reverse = function(x) {\n let res\nif(x<0){\nres= parseInt(\"-\"+Math.abs(x).toString().split('').reverse().join(\"\"))\n}else{\nres= parseInt(Math.abs(x).toString().split('').reverse().join(\"\"))\n }\nif(res>2**31-1|| res<(-2)**31) return 0\n return res\n };\nconsole.log(reverse(-123))"
+
+        },
+        {
+            "title":"Binary Search",
+            "description":"Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1. You must write an algorithm with O(log n) runtime complexity.",
+            "level":"easy",
+            "solution":"var search = function(nums, target) {\nlet left=0;\nlet right=nums.length-1\nwhile(left<=right){\n let midPoint=Math.floor((left+right)/2)\nif(target ===nums[midPoint]) return midPoint\nif(target>nums[midPoint]){\nleft=midPoint+1\n}else{\n right=midPoint-1\n }\n }\n return -1\n };\nconsole.log( search( [-1,0,3,5,9,12],9))"
+
+        }
+
+    ]
+}
